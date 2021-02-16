@@ -7,4 +7,30 @@
 
     <hr>
     
+    <!-- Cards -->
+    <div class="row">
+        <div class="col-lg-3 mt-3" *ngFor="let movie of movies">
+            <div class="card-deck">
+                <div class="card animate__animated animate__bounce">
+                    <img [src]="movie.thumbnails.high.url" class="card-img-top" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="card-title text-truncate">{{ movie.title }}</h5>
+                        <p class="card-text"><strong>Autor:</strong> {{ movie.channelTitle }} </p>
+                        <small class="text-muted">Publicado el {{ movie.publishedAt | date }}</small>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary btn-block" (click)="seeMovie(movie)">Ver video</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5 text-center">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary" (click)="loadMovies()">Siguiente Página</button>
+        </div>
+    </div>
 </div>
